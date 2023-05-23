@@ -16,6 +16,23 @@ CREATE TABLE produto (
   categoria ENUM('Roupas', 'Acessórios')  
 );
 
+create table usuario(
+  id int unsigned primary key auto_increment,
+  nome VARCHAR(255) NOT NULL,
+  email varchar(255) not null
+);
+
+create table pedido (
+	id int unsigned primary key auto_increment,
+    metodo_pagamento VARCHAR(45) NOT NULL,
+    data date,
+    nome VARCHAR(255) NOT NULL,
+    email varchar(255) not null,
+    constraint fk_pedidoid foreign key (id) references usuario(id)
+);
+
+
+
 INSERT INTO produto (nome, descricao, marca, modelo, preco, capa, destaque, esporte, categoria) VALUES
 ('Raquete de Beach Tennis', 'Raquete profissional para jogos de Beach Tennis', 'Wilson', 'Pro Staff', 199.99, 'raquete.jpg', TRUE, 'Beach Tennis', 'Acessórios'),
 ('Bola de Vôlei de Praia', 'Bola oficial de vôlei de praia', 'Mikasa', 'VLS300', 49.99, 'bola.jpg', FALSE, 'Vôlei de Praia', 'Acessórios'),

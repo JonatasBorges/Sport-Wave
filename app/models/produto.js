@@ -1,5 +1,6 @@
 const db = require('../config/db');
 
+// EVERY TABLE GET A CLASS
 class Produto {
     constructor({
         id,
